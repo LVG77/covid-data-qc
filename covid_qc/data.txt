@@ -1,0 +1,11 @@
+path:
+- data.csv
+- data.rds
+rows: 20
+cols: 4
+columns:
+  regions: character
+  value: numeric
+  type: character
+  date: Date
+type: table
