@@ -15,18 +15,20 @@ time_stp <- qc_tables %>%
   colnames() %>% 
   .[2]
 
-print(time_stp)
-# time_stp <- " April 8"
-# time_stp <- " April 8, 1 p.m."
-# time_stp2 <- "Number of confirmed cases, on April 8, 1 p.m."
-# identical(gsub("[^[:alnum:]]", " ", time_stp), gsub("[^[:alnum:]]", " ", time_stp2))
+
+# t_stamp <- time_stp %>% 
+#   gsub("[^[:alnum:]]", " ", .) %>% 
+#   gsub(".*\\son\\s|\\s+1.*", "", .) %>%
+#   trimws() %>% 
+#   paste0(", 2020") %>%
+#   as.Date("%B %d, %Y")
 
 t_stamp <- time_stp %>% 
-  gsub("[^[:alnum:]]", " ", .) %>% 
-  gsub(".*\\son\\s|\\s+1.*", "", .) %>%
+  gsub("[^[:alnum:]]", "-", .) %>% 
+  gsub(".*--on-|--.*", "", .) %>%
   trimws() %>% 
   paste0(", 2020") %>%
-  as.Date("%B %d, %Y")
+  as.Date("%B-%d, %Y")
 
 if (!t_stamp %in% covid_qc$date) {
   cases <- extract_tbl(qc_tables, 1, "conf_cases", t_stamp)
