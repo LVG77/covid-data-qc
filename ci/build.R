@@ -7,7 +7,7 @@ covid_qc <- pins::pin_get("covid_qc", board = "github", cache = FALSE)
 
 url <- "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/"
 
-qc_tables <- xml2::read_html(url) %>% 
+qc_tables <- xml2::read_html(url) %>%            
   rvest::html_table()
 
 time_stp <- qc_tables %>% 
@@ -18,11 +18,12 @@ time_stp <- qc_tables %>%
 print(time_stp)
 # time_stp <- " April 8"
 # time_stp <- " April 8, 1 p.m."
-# time_stp <- "Number of confirmed cases, on April 8, 1 p.m."
+# time_stp2 <- "Number of confirmed cases, on April 8, 1 p.m."
+# identical(gsub("[^[:alnum:]]", " ", time_stp), gsub("[^[:alnum:]]", " ", time_stp2))
 
 t_stamp <- time_stp %>% 
-  gsub(".*\\son\\s", "", .) %>%
-  gsub(",.*", "", .) %>%
+  gsub("[^[:alnum:]]", " ", .) %>% 
+  gsub(".*\\son\\s|\\s+1.*", "", .) %>%
   trimws() %>% 
   paste0(", 2020") %>%
   as.Date("%B %d, %Y")
