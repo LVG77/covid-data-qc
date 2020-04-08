@@ -22,3 +22,6 @@ deaths <- extract_tbl(qc_tables, 3, "deaths")
 
 write.table(cases, "data/cases_test.csv", sep = ",", col.names = !file.exists("data/cases_test.csv"), append = T, row.names = F)
 write.table(cases, "data/deaths_test.csv", sep = ",", col.names = !file.exists("data/deaths_test.csv"), append = T, row.names = F)
+
+# write.table(cases, "data/cases.csv", sep = ",", col.names = !file.exists("data/cases.csv"), append = T, row.names = F)
+# write.table(cases, "data/deaths.csv", sep = ",", col.names = !file.exists("data/deaths.csv"), append = T, row.names = F)
