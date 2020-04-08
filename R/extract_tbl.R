@@ -1,10 +1,11 @@
 
-extract_tbl <- function(tbl_list, idx = 1, col_name = "cases") {
+extract_tbl <- function(tbl_list, idx = 1, var_id = "cases") {
   df <- tbl_list[[idx]]
-  names(df) <- c("regions", col_name)
+  names(df) <- c("regions", "value")
   df <- df[!grepl("^\\(?Source", df$regions), ] 
   df <- df[!grepl("Total", df$regions), ] 
-  df[ , col_name] <- as.integer(gsub("\\s", "", df[ , col_name]))
+  df[ , "value"] <- as.integer(gsub("\\s", "", df[ , "value"]))
+  df[ ,"type"] <- var_id
   df[ ,"date"] <- t_stamp
   df
 }
