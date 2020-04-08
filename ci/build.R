@@ -15,8 +15,10 @@ time_stp <- qc_tables %>%
   colnames() %>% 
   .[[2]]
 
+time_stp <- " April 8"
+
 t_stamp <- time_stp %>% 
-  gsub(".*on|,.*", "", ., perl = TRUE) %>% 
+  # gsub(".*on|,.*", "", ., perl = TRUE) %>% 
   trimws() %>% 
   paste0(", 2020") %>%
   # gsub("^\\s", "", ., perl = TRUE) %>%
