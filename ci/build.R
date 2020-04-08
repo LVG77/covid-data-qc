@@ -13,12 +13,12 @@ qc_tables <- xml2::read_html(url) %>%
 time_stp <- qc_tables %>% 
   .[[1]] %>% 
   colnames() %>% 
-  .[[2]]
+  .[2]
 
 print(time_stp)
 # time_stp <- " April 8"
 # time_stp <- " April 8, 1 p.m."
-time_stp <- "Number of confirmed cases, on April 8, 1 p.m."
+# time_stp <- "Number of confirmed cases, on April 8, 1 p.m."
 
 t_stamp <- time_stp %>% 
   gsub(".*\\son\\s", "", .) %>%
