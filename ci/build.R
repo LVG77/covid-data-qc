@@ -35,12 +35,10 @@ if (!t_stamp %in% covid_qc$date) {
 
 
 # cases <- readr::read_csv("/Users/lvg/Desktop/cases.csv")
-# deaths <- readr::read_csv("/Users/lvg/Desktop/deaths.csv")
 # 
-# cases_df <- cases %>% 
-#   dplyr::rename(value = conf_cases) %>% 
-#   dplyr::mutate(type = "conf_cases") %>% 
+# cases_df <- cases %>%
+#   dplyr::rename(value = conf_cases) %>%
+#   dplyr::mutate(type = "conf_cases") %>%
 #   dplyr::select(regions, value, type, date)
 # 
-# pins::
 # pins::pin(cases_df, name = "covid_qc", board = "github")
