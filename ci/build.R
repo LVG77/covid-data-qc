@@ -17,7 +17,7 @@ time_stp <- qc_tables %>%
 
 t_stamp <- time_stp %>% 
   gsub(".*on|,.*", "", .) %>% 
-  gsub("^\\s", "", .) %>% 
+  gsub("^\\s", "", ., perl = TRUE) %>% 
   as.Date("%B %d")
 
 if (!t_stamp %in% covid_qc$date) {
