@@ -34,6 +34,7 @@ if (!t_stamp %in% covid_qc$date) {
 
 
 
+
 # cases <- readr::read_csv("/Users/lvg/Desktop/cases.csv")
 # 
 # cases_df <- cases %>%
