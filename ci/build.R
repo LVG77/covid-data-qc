@@ -16,10 +16,10 @@ time_stp <- qc_tables %>%
   .[[2]]
 
 # time_stp <- " April 8"
-time_stp <- " April 8, 1 p.m."
+# time_stp <- " April 8, 1 p.m."
 
 t_stamp <- time_stp %>% 
-  # gsub(".*cases, on", "", .) %>%
+  gsub(".* on ", "", .) %>%
   gsub(",.*", "", .) %>%
   trimws() %>% 
   paste0(", 2020") %>%
