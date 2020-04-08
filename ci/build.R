@@ -16,7 +16,7 @@ time_stp <- qc_tables %>%
   .[[2]]
 
 t_stamp <- time_stp %>% 
-  gsub(".*on|,.*", "", .) %>% 
+  gsub(".*on|,.*", "", ., perl = TRUE) %>% 
   trimws() %>% 
   paste0(", 2020") %>% 
   # gsub("^\\s", "", ., perl = TRUE) %>% 
@@ -36,12 +36,12 @@ if (!t_stamp %in% covid_qc$date) {
 
 
 
-# cases <- readr::read_csv("/Users/lvg/Desktop/cases.csv")
-# 
-# cases_df <- cases %>%
-#   dplyr::rename(value = conf_cases) %>%
-#   dplyr::mutate(type = "conf_cases") %>%
-#   dplyr::select(regions, value, type, date)
-# 
-# pins::pin_remove("covid_qc", board = "github")
-# pins::pin(cases_df, name = "covid_qc", board = "github")
+cases <- readr::read_csv("/Users/lvg/Desktop/cases.csv")
+
+cases_df <- cases %>%
+  dplyr::rename(value = conf_cases) %>%
+  dplyr::mutate(type = "conf_cases") %>%
+  dplyr::select(regions, value, type, date)
+
+pins::pin_remove("covid_qc", board = "github")
+pins::pin(cases_df, name = "covid_qc", board = "github")
