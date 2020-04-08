@@ -19,4 +19,4 @@ t_stamp <- time_stp %>%
 cases <- extract_tbl(qc_tables, 1, "conf_cases")
 extract_tbl(qc_tables, 3, "deaths")
 
-write.table(cases, "data/cases.csv", sep = ",", col.names = !file.exists("data/cases.csv"), append = T)
+write.table(cases, "data/cases.csv", sep = ",", col.names = !file.exists("data/cases.csv"), append = T, row.names = FALSE)
