@@ -15,13 +15,13 @@ time_stp <- qc_tables %>%
   colnames() %>% 
   .[[2]]
 
-time_stp <- " April 8"
+# time_stp <- " April 8"
 
 t_stamp <- time_stp %>% 
-  # gsub(".*on|,.*", "", ., perl = TRUE) %>% 
+  gsub(".*cases, on", "", .) %>%
+  gsub("\\,.*", "", .) %>%
   trimws() %>% 
   paste0(", 2020") %>%
-  # gsub("^\\s", "", ., perl = TRUE) %>%
   as.Date("%B %d, %Y")
 
 if (!t_stamp %in% covid_qc$date) {
