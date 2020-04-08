@@ -19,7 +19,7 @@ time_stp <- qc_tables %>%
 
 t_stamp <- time_stp %>% 
   gsub(".*cases, on", "", .) %>%
-  gsub("\\,.*", "", .) %>%
+  gsub(",.*", "", .) %>%
   trimws() %>% 
   paste0(", 2020") %>%
   as.Date("%B %d, %Y")
