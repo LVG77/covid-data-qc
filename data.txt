@@ -1,5 +1,5 @@
 - path: covid_qc
   name: covid_qc
-  rows: 60
+  rows: 100
   cols: 4
   type: table
